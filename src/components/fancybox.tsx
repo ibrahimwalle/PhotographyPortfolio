@@ -1,5 +1,5 @@
 
-import React, { useRef, useEffect, ReactNode } from "react";
+import { useRef, useEffect, ReactNode } from "react";
 
 import { Fancybox as NativeFancybox } from "@fancyapps/ui";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
