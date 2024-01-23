@@ -1,5 +1,6 @@
 
 import React from 'react';
+import Fancybox from './fancybox';
 
 const PortfolioComponent: React.FC = () => {
     
@@ -22,7 +23,12 @@ const PortfolioComponent: React.FC = () => {
             <h1 className="text-4xl pt-10 pb-8 font-bold text-left">PORTFOLIO</h1>
             <section className="text-neutral-700">
                 <div className="container w-full">
-                    <div className="flex flex-wrap w-full">
+                    <Fancybox
+                        options={{
+                        Carousel: {
+                            infinite: false,
+                        },
+                        }}>
                         <div className="flex w-full md:w-1/2 flex-wrap grow">
                             {set1.map((image, index) => (
                                 <div className={`w-full md:w-1/2 p-1 grow`} key={index}>
@@ -53,7 +59,7 @@ const PortfolioComponent: React.FC = () => {
                                 </div>
                             ))}
                         </div>
-                    </div>
+                    </Fancybox>
                 </div>
             </section>
         </div>
