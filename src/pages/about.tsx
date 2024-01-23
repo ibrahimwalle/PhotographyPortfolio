@@ -7,7 +7,7 @@ const About: React.FC = () => {
             <div className="grid grid-cols-2 gap-14 md:gap-20">
                 <div className="col-span-2 md:col-span-1">
                     <div className="bg-white dark:bg-neutral-900 p-5 pb-28 m-6 md:m-12 shadow-lg border border-gray-100 dark:border-neutral-800 hover:rotate-0 transition duration-500 -rotate-6 relative">
-                        <img src='./src/assets/Avatar.jpg' alt="" className="smooth-edges flex flex-col w-full aspect-square object-cover h-auto" />
+                        <img src='./public/Avatar.jpg' alt="" className="smooth-edges flex flex-col w-full aspect-square object-cover h-auto" />
                         <div className="absolute bottom-0 left-0 right-0 text-center">
                             <p className="text-gray-800 dark:text-slate-200 pb-7 h-full text-6xl font-nothingyoucoulddo">me</p>
                         </div>
