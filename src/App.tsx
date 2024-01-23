@@ -5,6 +5,12 @@ import Contact from './pages/contact'
 import Navbar from './components/navbar'
 import Footer from './components/footer';
 
+
+{/* <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Signika:wght@400;700&display=swap" rel="stylesheet"> */}
+
 import './App.css'
 
 function App() {

@@ -96,3 +96,17 @@ button:focus-visible {
   100% { transform: rotate( 0.0deg) }
 }
 }
+
+@font-face {
+  font-family: Signika;
+  src: url('https://fonts.googleapis.com/css2?family=Signika:wght@400;700&display=swap');
+}
+
+@font-face {
+  font-family: Nothing You Could Do;
+  src: url('https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap');
+}
+
+.font-nothingyoucoulddo{
+  font-family: 'Nothing You Could Do', cursive;
+}
