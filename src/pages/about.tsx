@@ -3,7 +3,7 @@ import React from 'react';
 const About: React.FC = () => {
     return (
         <div>
-            <h1 className="text-4xl pt-10 pb-8 text-left"><b>ABOUT ME</b></h1>
+            <h1 className="text-3xl pt-10 pb-8 text-left"><b>ABOUT ME</b></h1>
             <div className="grid grid-cols-2 gap-14 md:gap-20">
                 <div className="col-span-2 md:col-span-1">
                     <div className="bg-white dark:bg-neutral-900 p-5 pb-28 m-6 md:m-12 shadow-lg border border-gray-100 dark:border-neutral-800 hover:rotate-0 transition duration-500 -rotate-6 relative">

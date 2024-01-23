@@ -20,7 +20,7 @@ const PortfolioComponent: React.FC = () => {
 
     return (
         <div className="container mx-auto w-full">
-            <h1 className="text-4xl pt-10 pb-8 font-bold text-left">PORTFOLIO</h1>
+            <h1 className="text-3xl pt-10 pb-8 font-bold text-left">PORTFOLIO</h1>
             <section className="text-neutral-700">
                 <div className="container w-full">
                     <Fancybox

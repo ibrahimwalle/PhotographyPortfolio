@@ -6,7 +6,7 @@ const ContactPage: React.FC = () => {
             <div className="grid grid-cols-2 gap-16">
                 <section className="col-span-2 md:col-span-1">
                     <div className="max-w-screen-md">
-                        <h1 className="text-4xl pt-10 pb-8"><b>CONTACT</b></h1>
+                        <h1 className="text-3xl pt-10 pb-8"><b>CONTACT</b></h1>
 
                         <form className="space-y-8" action="mailto:ibrahimwalle20@gmail.com">
                             <div>
