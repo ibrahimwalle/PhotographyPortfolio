@@ -1,6 +1,7 @@
 
 import React from 'react';
 import Fancybox from './fancybox';
+import Gallery from './gallery';
 
 const PortfolioComponent: React.FC = () => {
     
@@ -29,7 +30,9 @@ const PortfolioComponent: React.FC = () => {
                             infinite: false,
                         },
                         }}>
-                        <div className="flex w-full md:w-1/2 flex-wrap grow">
+                        <Gallery images={set1} />
+                        <Gallery images={set2} alternate={true}/>
+                        {/* <div className="flex w-full md:w-1/2 flex-wrap grow">
                             {set1.map((image, index) => (
                                 <div className={`w-full md:w-1/2 p-1 grow`} key={index}>
                                     <div className="overflow-hidden h-full w-full">
@@ -43,8 +46,8 @@ const PortfolioComponent: React.FC = () => {
                                     </div>
                                 </div>
                             ))}
-                        </div>
-                        <div className="flex w-full md:w-1/2 flex-wrap grow">
+                        </div> */}
+                        {/* <div className="flex w-full md:w-1/2 flex-wrap grow">
                             {set2.map((image, index) => (
                                 <div className={`w-full md:w-1/2 p-1 ${index == 0 ? 'md:w-full' : ''} grow`} key={index}>
                                     <div className="overflow-hidden h-full w-full">
@@ -58,7 +61,7 @@ const PortfolioComponent: React.FC = () => {
                                     </div>
                                 </div>
                             ))}
-                        </div>
+                        </div> */}
                     </Fancybox>
                 </div>
             </section>

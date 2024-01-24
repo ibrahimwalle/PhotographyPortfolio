@@ -110,3 +110,6 @@ button:focus-visible {
 .font-nothingyoucoulddo{
   font-family: 'Nothing You Could Do', cursive;
 }
+.animate-pulse{
+  animation-duration: 250ms;
+}
