@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, HashRouter } from 'react-router-dom';
 import Portfolio from './pages/portfolio'
 import About from './pages/about'
 import Contact from './pages/contact'
@@ -17,7 +17,7 @@ function App() {
 
   return (
     
-    <BrowserRouter>
+    <HashRouter>
         <div className="App dark:bg-black bg-white h-screen text-black dark:text-white px-5 md:px-20 animate-fade-in transition duration-500">
           <Navbar/>
           <Routes>
@@ -28,7 +28,7 @@ function App() {
           </Routes>
           <Footer/>
         </div>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 
