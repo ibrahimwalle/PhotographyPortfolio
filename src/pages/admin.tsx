@@ -37,7 +37,7 @@ type dataRes = {
 
 const Admin: React.FC = () => {
     const [password, setPassword] = useState('');
-    const [isPasswordCorrect, setIsPasswordCorrect] = useState(false);
+    const [isPasswordCorrect, setIsPasswordCorrect] = useState( localStorage.getItem('password') === accessKey? true : false );
     const [selectedFiles, setSelectedFiles] = useState<FileInfo[]>([]);
 
     const fetchData = async () : Promise<dataRes> => {
@@ -59,7 +59,7 @@ const Admin: React.FC = () => {
         // Check if the entered password is correct
         if (password === accessKey) {
             setIsPasswordCorrect(true);
-            sessionStorage.setItem('password', password);
+            localStorage.setItem('password', password);
         } else {
             toast.error('Incorrect password!');
         }
@@ -115,7 +115,9 @@ const Admin: React.FC = () => {
             ) : (
                 <div className='space-y-8'>
                     {isLoading ? (
-                        <div>Loading image groups...</div>
+                        <div className="flex items-center justify-center h-20">
+                            <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-t-cyan-200 border-b-cyan-300"></div>
+                        </div>
                     ) : isError ? (
                         <div>Error fetching image groups!</div>
                     ) : (
