@@ -2,7 +2,7 @@ import React from 'react';
 
 const About: React.FC = () => {
     return (
-        <div>
+        <div className='container mx-auto w-full'>
             <h1 className="text-3xl pt-10 pb-8 text-left"><b>ABOUT ME</b></h1>
             <div className="grid grid-cols-2 gap-14 md:gap-20">
                 <div className="col-span-2 md:col-span-1">

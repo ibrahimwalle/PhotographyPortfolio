@@ -2,7 +2,7 @@ import React from 'react';
 
 const ContactPage: React.FC = () => {
     return (
-        <div className="container mx-auto">
+        <div className="container mx-auto w-full">
             <div className="grid grid-cols-2 gap-16">
                 <section className="col-span-2 md:col-span-1">
                     <div className="max-w-screen-md">
