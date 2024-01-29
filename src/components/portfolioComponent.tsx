@@ -24,7 +24,7 @@ const PortfolioComponent: React.FC = () => {
         return images;
     }
 
-    const { data  , isLoading, isError, refetch } = useQuery('data', fetchData);
+    const { data } = useQuery('data', fetchData);
 
 
     const set1 = [
