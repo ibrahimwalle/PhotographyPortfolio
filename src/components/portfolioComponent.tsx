@@ -1,10 +1,32 @@
 
 import React from 'react';
+import { useQuery } from 'react-query';
+import { listOfGroups, groupInfo } from '@uploadcare/rest-client';
+import { uploadcareSimpleAuthSchema } from '../utils/uploadcare_config';
+
 import Fancybox from './fancybox';
 import Gallery from './gallery';
 
 const PortfolioComponent: React.FC = () => {
-    
+
+    const fetchData = async () => {
+        let images: any = [];
+        const grouplist = await listOfGroups({}, { authSchema: uploadcareSimpleAuthSchema });
+        // use group ids to fetch images and populate sets dynamically based on the number of groups
+        const groupIds = grouplist.results.map((group) => group.id);
+        for (const id of groupIds) {
+            const group = await groupInfo({uuid: id}, { authSchema: uploadcareSimpleAuthSchema });
+            const imageIDs = group.files.map((file) => `https://ucarecdn.com/${file.uuid}/-/preview/`);
+            // images is an array of arrays of image uuids
+            images.push(imageIDs);
+        }  
+        console.log(images);
+        return images;
+    }
+
+    const { data  , isLoading, isError, refetch } = useQuery('data', fetchData);
+
+
     const set1 = [
         'https://images.unsplash.com/photo-1675789203977-70070dae0799?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
         'https://images.unsplash.com/photo-1674985594089-eab270e843c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1963&q=80',
@@ -32,36 +54,10 @@ const PortfolioComponent: React.FC = () => {
                         }}>
                         <Gallery images={set1} />
                         <Gallery images={set2} alternate={true}/>
-                        {/* <div className="flex w-full md:w-1/2 flex-wrap grow">
-                            {set1.map((image, index) => (
-                                <div className={`w-full md:w-1/2 p-1 grow`} key={index}>
-                                    <div className="overflow-hidden h-full w-full">
-                                        <a href={image} data-fancybox="gallery">
-                                            <img
-                                                alt={`image-${index}`}
-                                                className="block h-full w-full object-cover object-center animate-fade-in transition duration-500 transform scale-100 hover:scale-110"
-                                                src={image}
-                                            />
-                                        </a>
-                                    </div>
-                                </div>
-                            ))}
-                        </div> */}
-                        {/* <div className="flex w-full md:w-1/2 flex-wrap grow">
-                            {set2.map((image, index) => (
-                                <div className={`w-full md:w-1/2 p-1 ${index == 0 ? 'md:w-full' : ''} grow`} key={index}>
-                                    <div className="overflow-hidden h-full w-full">
-                                        <a href={image} data-fancybox="gallery">
-                                            <img
-                                                alt={`image-${index}`}
-                                                className="block h-full w-full object-cover object-center animate-fade-in transition duration-500 transform scale-100 hover:scale-110"
-                                                src={image}
-                                            />
-                                        </a>
-                                    </div>
-                                </div>
-                            ))}
-                        </div> */}
+                        {/* {data} */}
+                        {data?.map((imageSet: any) => (
+                            <Gallery images={imageSet} />
+                        ))}
                     </Fancybox>
                 </div>
             </section>

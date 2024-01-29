@@ -6,7 +6,6 @@ import {
     listOfGroups,
     deleteFile,
     deleteGroup,
-    UploadcareSimpleAuthSchema,
     FileInfo,
     ListOfGroupsResponse,
     ListOfFilesResponse,
@@ -14,20 +13,15 @@ import {
 import { group } from '@uploadcare/upload-client';
 import * as LR from "@uploadcare/blocks";
 import blocksStyles from '@uploadcare/blocks/web/lr-file-uploader-regular.min.css?url';
+import { uploadcareSimpleAuthSchema } from '../utils/uploadcare_config';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 // fetch secrets from .env file
-const publicKey = import.meta.env.VITE_APP_PUBLIC_KEY;
-const secretKey = import.meta.env.VITE_APP_SECRET_KEY;
 const accessKey = import.meta.env.VITE_APP_ACCESS_KEY;
 
 LR.registerBlocks(LR);
-const uploadcareSimpleAuthSchema = new UploadcareSimpleAuthSchema({
-    publicKey: publicKey,
-    secretKey: secretKey,
-});
 
 // new type
 type dataRes = {
