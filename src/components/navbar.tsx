@@ -15,7 +15,7 @@ const Navbar: React.FC = () => {
             <nav id="nav" role="navigation" className="w-full">
                 <div className="container mx-auto flex flex-wrap items-center md:flex-no-wrap">
                     <div className="mr-4 md:mr-8">
-                        <h1 className="text-4xl font-signika font-bold">IBRAHIM WALI</h1>
+                        <NavLink to="/" className="text-4xl font-signika font-bold">IBRAHIM WALI</NavLink>
                     </div>
                     <div className="ml-auto md:hidden flex items-center justify-start">
                         <button className="tap-highlight-transparent text-black dark:text-white w-5 h-5 relative focus:outline-none bg-transparent" onClick={menuToggle}>

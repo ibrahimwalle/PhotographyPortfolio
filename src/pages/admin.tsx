@@ -113,7 +113,7 @@ const Admin: React.FC = () => {
                             <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-t-cyan-200 border-b-cyan-300"></div>
                         </div>
                     ) : isError ? (
-                        <div>Error fetching image groups!</div>
+                        <div>Error Fetching Files!</div>
                     ) : (
                         <section>
                             <h2 className='text-3xl text-left'>All Files</h2>
@@ -168,30 +168,38 @@ const Admin: React.FC = () => {
                         </ul>
                         <button onClick={handleCreateGroup} className='py-3 px-5 text-sm font-medium text-center bg-black dark:bg-white text-white dark:text-black rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800' type="submit">Create Group</button>
                     </section>
-                    <section>
-                        <h2 className='text-3xl text-left'>All Groups</h2>
-                        <ul className='bg-white dark:bg-neutral-900 p-5 my-6 rounded shadow-lg border border-gray-100 dark:border-neutral-800 relative h-fit w-full'>
-                            {/* {dataRes?.grouplist.results[0].cdnUrl}  */}
-                            {dataRes?.grouplist?.results.map((group: any) => (
-                                <li key={group.id} className="flex items-center text-left space-x-4 my-2">
-                                    <div className="flex-grow">
-                                        <a href={group.cdnUrl} target='_blank' className="font-medium">Group URL</a>
-                                    </div>
-                                    <div className="flex-grow">
-                                        <div className="text-sm text-gray-500">Number of files: {group.filesCount}</div>
-                                    </div>
-                                    <div className="flex-grow">
-                                        <div className="text-sm text-gray-500">Date created: {group.datetimeCreated}</div>
-                                    </div>
-                                    <div>
-                                        <button onClick={() => handleDeleteGroup(group.id)} className="bg-red-300 hover:bg-red-600 border-none text-white font-medium py-1 px-2 rounded">
-                                            <FontAwesomeIcon icon={faTrash} className="h-5 w-5 inline-block" />
-                                        </button>
-                                    </div>
-                                </li>
-                            ))}
-                        </ul>
-                    </section>
+                    {isLoading ? (
+                        <div className="flex items-center justify-center h-20">
+                            <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-t-cyan-200 border-b-cyan-300"></div>
+                        </div>
+                    ) : isError ? (
+                        <div>Error Fetching Groups!</div>
+                    ) : (
+                        <section>
+                            <h2 className='text-3xl text-left'>All Groups</h2>
+                            <ul className='bg-white dark:bg-neutral-900 p-5 my-6 rounded shadow-lg border border-gray-100 dark:border-neutral-800 relative h-fit w-full'>
+                                {/* {dataRes?.grouplist.results[0].cdnUrl}  */}
+                                {dataRes?.grouplist?.results.map((group: any) => (
+                                    <li key={group.id} className="flex items-center text-left space-x-4 my-2">
+                                        <div className="flex-grow">
+                                            <a href={group.cdnUrl} target='_blank' className="font-medium">Group URL</a>
+                                        </div>
+                                        <div className="flex-grow">
+                                            <div className="text-sm text-gray-500">Number of files: {group.filesCount}</div>
+                                        </div>
+                                        <div className="flex-grow">
+                                            <div className="text-sm text-gray-500">Date created: {group.datetimeCreated}</div>
+                                        </div>
+                                        <div>
+                                            <button onClick={() => handleDeleteGroup(group.id)} className="bg-red-300 hover:bg-red-600 border-none text-white font-medium py-1 px-2 rounded">
+                                                <FontAwesomeIcon icon={faTrash} className="h-5 w-5 inline-block" />
+                                            </button>
+                                        </div>
+                                    </li>
+                                ))}
+                            </ul>
+                        </section>
+                    )}
                     <section>
                         <h2 className='text-3xl text-left'><b>Upload Files</b></h2>
                         {/* ignore error for build */}
