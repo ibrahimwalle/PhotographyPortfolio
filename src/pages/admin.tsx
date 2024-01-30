@@ -16,7 +16,7 @@ import blocksStyles from '@uploadcare/blocks/web/lr-file-uploader-regular.min.cs
 import { uploadcareSimpleAuthSchema } from '../utils/uploadcare_config';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faAdd, faRefresh, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 // fetch secrets from .env file
 const accessKey = import.meta.env.VITE_APP_ACCESS_KEY;
@@ -110,7 +110,7 @@ const Admin: React.FC = () => {
                 <div className='space-y-8'>
                     {isLoading ? (
                         <div className="flex items-center justify-center h-20">
-                            <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-t-cyan-200 border-b-cyan-300"></div>
+                            <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-t-slate-300 border-b-slate-400"></div>
                         </div>
                     ) : isError ? (
                         <div>Error Fetching Files!</div>
@@ -124,21 +124,23 @@ const Admin: React.FC = () => {
                                         <div className="flex-shrink-0">
                                             <img className="h-10 w-10 rounded" src={`https://ucarecdn.com/${file.uuid}/-/scale_crop/80x80/-/quality/smart_retina/-/format/auto/`} alt="" />
                                         </div>
-                                        <div className="flex-grow">
+                                        <div className="text-xs flex-grow md:text-base">
                                             <a href={file.originalFileUrl} target='_blank' className="font-medium">{file.originalFilename}</a>
                                         </div>
-                                        <div className="flex-grow">
+                                        <div className="hidden md:block flex-grow">
                                             <div className="text-sm text-gray-500">Size: {file.size}</div>
                                         </div>
-                                        <div className="flex-grow">
+                                        <div className="hidden md:block flex-grow">
                                             <div className="text-sm text-gray-500">MIME Type: {file.mimeType}</div>
                                         </div>
                                         <div>
-                                            <button onClick={() => handleAddToGroup(file)} className="bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium py-1 px-2 rounded">Add to group</button>
+                                            <button onClick={() => handleAddToGroup(file)} className="bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium py-1 px-2 rounded">
+                                                <FontAwesomeIcon icon={faAdd} className="w-5 inline-block" />
+                                            </button>
                                         </div>
                                         <div>
                                             <button onClick={() => handleDeleteFile(file.uuid)} className="bg-red-300 hover:bg-red-600 border-none text-white font-medium py-1 px-2 rounded">
-                                                <FontAwesomeIcon icon={faTrash} className="h-5 w-5 inline-block" />
+                                                <FontAwesomeIcon icon={faTrash} className="w-5 inline-block" />
                                             </button>
                                         </div>
                                     </li>
@@ -170,7 +172,7 @@ const Admin: React.FC = () => {
                     </section>
                     {isLoading ? (
                         <div className="flex items-center justify-center h-20">
-                            <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-t-cyan-200 border-b-cyan-300"></div>
+                            <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-t-slate-300 border-b-slate-400"></div>
                         </div>
                     ) : isError ? (
                         <div>Error Fetching Groups!</div>
@@ -181,18 +183,18 @@ const Admin: React.FC = () => {
                                 {/* {dataRes?.grouplist.results[0].cdnUrl}  */}
                                 {dataRes?.grouplist?.results.map((group: any) => (
                                     <li key={group.id} className="flex items-center text-left space-x-4 my-2">
-                                        <div className="flex-grow">
+                                        <div className="text-xs flex-grow md:text-base">
                                             <a href={group.cdnUrl} target='_blank' className="font-medium">Group URL</a>
                                         </div>
                                         <div className="flex-grow">
                                             <div className="text-sm text-gray-500">Number of files: {group.filesCount}</div>
                                         </div>
-                                        <div className="flex-grow">
+                                        <div className="hidden md:block flex-grow">
                                             <div className="text-sm text-gray-500">Date created: {group.datetimeCreated}</div>
                                         </div>
                                         <div>
                                             <button onClick={() => handleDeleteGroup(group.id)} className="bg-red-300 hover:bg-red-600 border-none text-white font-medium py-1 px-2 rounded">
-                                                <FontAwesomeIcon icon={faTrash} className="h-5 w-5 inline-block" />
+                                                <FontAwesomeIcon icon={faTrash} className="w-5 inline-block" />
                                             </button>
                                         </div>
                                     </li>
@@ -201,7 +203,7 @@ const Admin: React.FC = () => {
                         </section>
                     )}
                     <section>
-                        <h2 className='text-3xl text-left'><b>Upload Files</b></h2>
+                        <h2 className='text-3xl text-left'>Upload Files</h2>
                         {/* ignore error for build */}
                         {/* @ts-ignore */}
                         <lr-upload-ctx-provider 
@@ -218,6 +220,9 @@ const Admin: React.FC = () => {
                             />
                         {/* @ts-ignore */}
                         </lr-upload-ctx-provider>
+                        <button onClick={() => refetch()} className="bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium py-1 px-2 rounded">
+                            <FontAwesomeIcon icon={faRefresh} className="w-5 inline-block" />
+                        </button>
                     </section>
                 </div>
             )}

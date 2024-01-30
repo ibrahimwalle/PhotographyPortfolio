@@ -48,7 +48,7 @@ const PortfolioComponent: React.FC = () => {
                 <div className="container w-full">
                     {isLoading ? (
                         <div className="flex items-center justify-center h-20">
-                            <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-t-cyan-200 border-b-cyan-300"></div>
+                            <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-t-slate-300 border-b-slate-400"></div>
                         </div>
                         ) : isError ? (
                             <div>Error Fetching images!</div>
