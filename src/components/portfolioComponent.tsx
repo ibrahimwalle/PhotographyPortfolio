@@ -26,21 +26,6 @@ const PortfolioComponent: React.FC = () => {
 
     const { data  , isLoading, isError } = useQuery('data', fetchData);
 
-
-    // const set1 = [
-    //     'https://images.unsplash.com/photo-1675789203977-70070dae0799?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
-    //     'https://images.unsplash.com/photo-1674985594089-eab270e843c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1963&q=80',
-    //     'https://images.unsplash.com/photo-1667093060577-02f07eb01585?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1750&q=80',
-    // ];
-    // const set2 = [
-    //     'https://images.unsplash.com/photo-1676978647680-0e60a584c5fa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80',
-    //     'https://images.unsplash.com/photo-1675910568522-c187fd74d5b9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80',
-    //     'https://images.unsplash.com/photo-1675971074488-351394caf6aa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80',
-    //     'https://images.unsplash.com/photo-1655908932015-7650b401e2f9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80',
-    //     'https://images.unsplash.com/photo-1675189729507-b90d7cb6c592?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1816&q=80',
-    // ];
-
-
     return (
         <div className="container mx-auto w-full">
             <h1 className="text-3xl pt-10 pb-8 font-bold text-left">PORTFOLIO</h1>
@@ -53,17 +38,9 @@ const PortfolioComponent: React.FC = () => {
                         ) : isError ? (
                             <div>Error Fetching images!</div>
                         ) : 
-                        <Fancybox
-                            options={{
-                            Carousel: {
-                                infinite: false,
-                            },
-                            }}>
-                            {/* <Gallery images={set1} />
-                            <Gallery images={set2} alternate={true}/> */}
+                        <Fancybox options={{ Carousel: { infinite: false }}}>
                             {data?.map((imageSet: any, index: any) => (
-                            (index % 2 != 0) ?  <Gallery images={imageSet} alternate={true}/> : <Gallery images={imageSet} />
-                            // <Gallery images={imageSet} />
+                                (index % 2 != 0) ?  <Gallery images={imageSet} alternate={true}/> : <Gallery images={imageSet} />
                             ))}
                         </Fancybox>
                     }
