@@ -16,7 +16,7 @@ const PortfolioComponent: React.FC = () => {
         const groupIds = grouplist.results.map((group) => group.id);
         for (const id of groupIds) {
             const group = await groupInfo({uuid: id}, { authSchema: uploadcareSimpleAuthSchema });
-            const imageIDs = group.files.map((file) => `https://ucarecdn.com/${file.uuid}/-/preview/`);
+            const imageIDs = group.files.map((file) => `https://ucarecdn.com/${file.uuid}/-/preview/1016x1016/`);
             // images is an array of arrays of image uuids
             images.push(imageIDs);
         }  
