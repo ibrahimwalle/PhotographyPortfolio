@@ -19,28 +19,6 @@
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
 
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
-<!-- PROJECT LOGO -->
-<br />
-<div align="center">
-  <!-- <a href="https://github.com/JoaoFranco03/photography-portfolio">
-    <img src="dist/assets/Logo.jpg" alt="Logo" width="80" height="80">
-  </a> -->
-
-  <h3 align="center">Photography Portfolio</h3>
-
-  <p align="center">
-    A Website created using Tailwind CSS, HTML, CSS <br /> and JavaScript that can be used as a Photography Portfolio.
-    <br />
-    <br />
-    <a href="https://wali-photo.netlify.app/">View Demo</a>
-    <br />
-    <br />
-    
-  </p>
-</div>
-
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
@@ -53,16 +31,11 @@
         <li><a href="#css-badge">CSS</a></li>
         <li><a href="#js-badge">JavaScript</a></li>
         <li><a href="#tailwind-badge">Tailwind CSS</a></li>
-        <li><a href="#react-badge">Tailwind CSS</a></li>
-        <li><a href="#typescript-badge">Tailwind CSS</a></li>
+        <li><a href="#react-badge">React</a></li>
+        <li><a href="#typescript-badge">TypeScript</a></li>
       </ul>
     </li>
-    <li><a href="#quick-start">Quick Start</a></li>
-    <li><a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
+    <li><a href="#quick-start">Overview</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
@@ -73,11 +46,16 @@
 
 # 📋 About The Project <a name="about-the-project"></a>
 
-[![Product Name Screen Shot][product-screenshot]]()
+This project is a web-based portfolio that beautifully showcases my photography work. The portfolio was skillfully built using a combination of powerful front-end technologies, including React, TypeScript, Tailwind CSS, CSS, HTML, and JavaScript.
 
-This project is a web-based portfolio that beautifully showcases the photography work of Sophia Williams, a fictional photographer. The portfolio was skillfully built using a combination of powerful front-end technologies, including Tailwind CSS, CSS, HTML, and JavaScript.
+[![LinkedIn][linkedin-shield]][linkedin-url]
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<div align="center">
+  <p align="center">
+    <a href="https://wali-photo.netlify.app/">Check out the live Website</a>
+  </p>
+</div>
+
 
 ## 🛠️ Built With <a name="built-with"></a>
 
@@ -92,7 +70,20 @@ This project is a web-based portfolio that beautifully showcases the photography
 
 ## 🚀 OverView <a name="quick-start"></a>
 
-words
+This project is based on a design by [João Franco](https://www.linkedin.com/in/jo%C3%A3o-franco-452161195/).
+
+New Contributions include:
+
+- Developing the website with React and TypeScript
+- Linking the website to a CDN (UploadCare)
+- Creating an Admin Page, where the user can manage thier portfolio and upload new images
+
+<!-- Product Screenshots -->
+
+## 📸 Product Screenshots <a name="screenshots"></a>
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LICENSE -->
 
@@ -149,4 +140,3 @@ Project Link: [https://wali-photo.netlify.app](https://wali-photo.netlify.app)
 [react-url]: https://reactjs.org
 [typescript-badge]: https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white
 [typescript-url]: https://www.typescriptlang.org/
-[product-screenshot]: dist/assets/mockup.png
