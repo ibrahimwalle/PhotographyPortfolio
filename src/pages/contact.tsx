@@ -4,10 +4,10 @@ const ContactPage: React.FC = () => {
 
     const [result, setResult] = React.useState("");
 
-    const onSubmit = async (event) => {
+    const onSubmit = async (event : React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         setResult("Sending....");
-        const formData = new FormData(event.target);
+        const formData = new FormData(event.target as HTMLFormElement);
 
         formData.append("access_key", "af29e1ff-c86b-4fd9-baa2-9be69a1c045b");
 
@@ -20,7 +20,7 @@ const ContactPage: React.FC = () => {
 
         if (data.success) {
         setResult("Form Submitted Successfully");
-        event.target.reset();
+        event.currentTarget.reset(); // Reset the form
         } else {
         console.log("Error", data);
         setResult(data.message);
